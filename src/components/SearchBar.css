@@ -1,0 +1,88 @@
+/* client/src/components/SearchBar.css */
+.search-widget {
+    max-width: 400px; /* 검색창 전체 위젯의 최대 너비 */
+    margin: 50px auto 20px auto; /* 중앙 정렬 및 상단 마진 */
+    padding: 15px;
+    background-color: #fff; /* 위젯 배경 흰색 */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 그림자 추가 */
+  }
+  
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* 검색창과 결과 사이 간격 */
+  }
+  
+  .search-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd; /* 옅은 테두리 */
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 14px;
+    width: 250px; /* 입력 필드 너비 축소 */
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .search-button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 검색 결과 및 상태 메시지 스타일 */
+  .search-status {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .search-results-mini {
+    margin-top: 10px;
+    text-align: left; /* 결과 목록 왼쪽 정렬 */
+    padding-left: 10px; /* 약간의 패딩 */
+  }
+  
+  .search-results-mini ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .search-results-mini li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+  
+  .search-results-mini li:last-child {
+    border-bottom: none;
+  }
+  
+  .search-results-mini a {
+    text-decoration: none;
+    color: #333; /* 링크 색상 조정 */
+    display: block; /* 전체 영역 클릭 가능 */
+  }
+  
+  .search-results-mini a:hover {
+    color: #007bff; /* 호버 시 색상 변경 */
+    text-decoration: underline;
+  }

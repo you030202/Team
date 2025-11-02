@@ -1,0 +1,200 @@
+/* src/RankingPage.css */
+
+/* 전체 페이지 레이아웃 */
+.ranking-page-container {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  background-color: #0f1923;
+  color: #c4b998;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  color: #f0e6d2;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 검색창 스타일 */
+.search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #4b3a29;
+  background-color: #1a2836;
+  color: #f0e6d2;
+  border-radius: 4px 0 0 4px;
+  width: 300px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid #785a28;
+  background-color: #1e2832;
+  color: #c4b998;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: #785a28;
+  color: #fff;
+}
+
+
+/* 메인 컨텐츠 영역 (Flexbox 사용) */
+.content-area {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 왼쪽 랭킹 리스트 */
+.ranking-list-container {
+  flex: 1;
+  background-color: #1a2836;
+  padding: 1.5rem;
+  border: 1px solid #4b3a29;
+  border-radius: 4px;
+}
+
+.ranking-list-container h2 {
+  color: #f0e6d2;
+  margin-top: 0;
+  border-bottom: 2px solid #785a28;
+  padding-bottom: 0.5rem;
+}
+
+.ranking-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-list-container li {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #2a3b4d;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ranking-list-container li:hover {
+  background-color: #2a3b4d;
+}
+
+.ranking-list-container li.selected {
+  background-color: #3a5068;
+}
+
+.ranking-list-container .rank {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 40px;
+  color: #f0e6d2;
+}
+
+.ranking-list-container .name {
+  flex-grow: 1;
+  font-size: 1.1rem;
+}
+
+.ranking-list-container .lp {
+  font-weight: bold;
+  color: #a094e0;
+}
+
+
+/* 오른쪽 선수 정보 */
+.player-details-container {
+  flex: 2;
+  background-color: #1a2836;
+  padding: 1.5rem;
+  border: 1px solid #4b3a29;
+  border-radius: 4px;
+}
+
+.player-details-container.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.player-details-container h2 {
+  color: #f0e6d2;
+  margin-top: 0;
+  border-bottom: 2px solid #785a28;
+  padding-bottom: 0.5rem;
+}
+
+.player-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.player-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #785a28;
+}
+
+.player-info h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f0e6d2;
+}
+
+.player-info p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #a094e0;
+}
+
+.player-stats .stat-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #0f1923;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.player-stats .label {
+  font-size: 1.1rem;
+  color: #c4b998;
+}
+
+.player-stats .value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 로딩 및 에러 메시지 */
+.loading-message, .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  color: #f0e6d2;
+}
