@@ -1,0 +1,70 @@
+/* src/KillLeaderboard.css */
+/* (App.css의 다크 테마와 어울리도록 스타일링) */
+
+.kill-leaderboard-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* <h2> 태그 (App.css에서 이미 스타일링 됨) */
+.kill-leaderboard-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e94560; 
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #0f3460;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse; /* 테이블 선 겹침 방지 */
+  margin-top: 10px;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #0f3460; /* 각 행의 구분선 */
+}
+
+.leaderboard-table th {
+  font-size: 0.9rem;
+  color: #a0a0a0; /* 헤더 텍스트 색상 */
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.leaderboard-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+  background-color: #1f2c4a; /* 마우스 오버 시 배경색 */
+}
+
+.leaderboard-table .rank-cell {
+  width: 10%;
+  font-weight: 700;
+  color: #e94560; /* 랭크 숫자 색상 */
+  text-align: center;
+}
+
+.leaderboard-table .player-cell {
+  width: 50%;
+  font-weight: 600;
+  color: #ffffff; /* 플레이어 이름 색상 */
+}
+
+.leaderboard-table .value-cell {
+  width: 40%;
+  font-weight: 700;
+  color: #e0e0e0; /* 킬 수 색상 */
+  text-align: right; /* 숫자 오른쪽 정렬 */
+}
