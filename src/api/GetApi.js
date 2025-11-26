@@ -1,56 +1,86 @@
-// GetApi.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import PlayerDetails from '../PlayerDetails'; 
+import '../RankingPage.css'; 
 
-export default function GetApi(props) {
-  const { userTag } = props;
+export default function GetApi() { 
+  const [playerTag, setPlayerTag] = useState(''); 
   const [playerData, setPlayerData] = useState(null);
+  const [matchData, setMatchData] = useState(null);
+  const [ratingHistory, setRatingHistory] = useState(null); // 추가
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  
+  const [activeTab, setActiveTab] = useState('stats'); 
 
-  useEffect(() => {
-    if (!userTag) {
-      setPlayerData(null);
+  const fetchPlayerData = async () => {
+    if (!playerTag.trim()) {
+      setError('플레이어 닉네임을 입력해주세요.');
       return;
     }
 
-    const fetchData = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const url = `http://localhost:5000/api/summoner/${userTag}`;
-        const response = await axios.get(url);
-        setPlayerData(response.data); //  server.js가 보내준 "통합 데이터"
-      } catch (err) {
-        setError(err);
-        setPlayerData(null);
-      } finally {
-        setIsLoading(false);
+    setIsLoading(true);
+    setError(null);
+    setPlayerData(null);
+    setMatchData(null);
+    setRatingHistory(null);
+    setActiveTab('stats');
+
+    try {
+      // 3개 API 동시 호출
+      const [playerRes, matchRes, historyRes] = await Promise.allSettled([
+        axios.get(`http://localhost:5000/api/summoner/${playerTag}`),
+        axios.get(`http://localhost:5000/api/matches/${playerTag}`),
+        axios.get(`http://localhost:5000/api/history/${playerTag}`)
+      ]);
+
+      if (playerRes.status === 'fulfilled') {
+        setPlayerData(playerRes.value.data);
+      } else {
+        throw new Error(playerRes.reason.response?.data?.message || '플레이어를 찾을 수 없습니다.');
       }
-    };
 
-    fetchData();
-  }, [userTag]);
+      if (matchRes.status === 'fulfilled') setMatchData(matchRes.value.data);
+      if (historyRes.status === 'fulfilled') setRatingHistory(historyRes.value.data);
 
-  if (!userTag) {
-    return <div>검색어를 입력하고 검색 버튼을 눌러주세요.</div>;
-  }
-  
-  if (isLoading) return <div>⏳ 로딩 중...</div>;
-  
-  if (error) {
-    if (error.response && error.response.data && error.response.data.message) {
-      return <div>🚨 에러: {error.response.data.message}</div>;
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
-    return <div>🚨 에러 발생: {error.message}</div>;
-  }
+  };
 
-  //  검색 결과가 있으면, JSON 대신 PlayerDetails 컴포넌트를 렌더링
   return (
-    <div>
-      {playerData && (
-        <PlayerDetails playerData={playerData} />
+    <div className="get-api-container">
+      <form onSubmit={(e) => { e.preventDefault(); fetchPlayerData(); }} className="search-form">
+        <input
+          type="text"
+          value={playerTag}
+          onChange={(e) => setPlayerTag(e.target.value)}
+          placeholder="Apex 닉네임을 입력하세요 (예: ImperialHal)"
+          className="search-input"
+        />
+        <button type="submit" className="search-button">검색</button>
+      </form>
+
+      {playerData && !isLoading && !error && (
+        <div className="tabs-navigation">
+          <button className={`tab-button ${activeTab === 'stats' ? 'active' : ''}`} onClick={() => setActiveTab('stats')}>📊 통계</button>
+          <button className={`tab-button ${activeTab === 'matchHistory' ? 'active' : ''}`} onClick={() => setActiveTab('matchHistory')}>📅 경기 내역</button>
+          <button className={`tab-button ${activeTab === 'progression' ? 'active' : ''}`} onClick={() => setActiveTab('progression')}>📈 진행</button>
+        </div>
+      )}
+
+      {isLoading && <p className="loading-message">로딩 중...</p>}
+      {error && <p className="loading-message" style={{ color: '#e94560' }}>{error}</p>}
+
+      {playerData && !isLoading && !error && (
+        <PlayerDetails 
+          playerData={playerData} 
+          matchData={matchData} 
+          ratingHistory={ratingHistory} // 전달
+          activeTab={activeTab} 
+        />
       )}
     </div>
   );
