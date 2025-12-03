@@ -1,5 +1,4 @@
 /* src/KillLeaderboard.css */
-/* (App.css의 다크 테마와 어울리도록 스타일링) */
 
 .kill-leaderboard-container {
   width: 100%;
@@ -8,11 +7,10 @@
   flex-direction: column;
 }
 
-/* <h2> 태그 (App.css에서 이미 스타일링 됨) */
 .kill-leaderboard-container h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #e94560; 
+  color: #00B4D8; /* 🟦 [변경] 하늘색 */
   margin-top: 0;
   margin-bottom: 25px;
   text-align: center;
@@ -52,7 +50,7 @@
 .leaderboard-table .rank-cell {
   width: 10%;
   font-weight: 700;
-  color: #e94560; /* 랭크 숫자 색상 */
+  color: #00B4D8; /* 🟦 [변경] 순위 숫자 하늘색 */
   text-align: center;
 }
 

@@ -1,8 +1,6 @@
 /* src/RankingPage.css */
 
-/* ===============================================
-   1. 왼쪽 랭킹 (Predator 컷) 스타일
-=============================================== */
+/* 1. 랭킹 (Predator 컷) */
 .ranking-list-container {
   width: 100%;
   height: 100%;
@@ -15,7 +13,7 @@
 .ranking-list-container h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #e94560; 
+  color: #00B4D8; /* 🟦 [변경] 하늘색 */
   margin-top: 0;
   margin-bottom: 25px;
   text-align: center;
@@ -53,7 +51,7 @@
 .predator-rank-lp {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #e94560;
+  color: #00B4D8; /* 🟦 [변경] 하늘색 LP 점수 */
   margin: 15px 0 20px 0;
   letter-spacing: 1px;
 }
@@ -72,11 +70,7 @@
   padding-top: 15px;
 }
 
-/* ===============================================
-   2. 중앙 컨텐츠 (App.js, GetApi.js, PlayerDetails.js) 스타일
-=============================================== */
-
-/* 검색 폼 */
+/* 2. 중앙 컨텐츠 */
 .search-form {
   display: flex;
   width: 100%;
@@ -105,7 +99,7 @@
 
 .search-button {
   padding: 15px 25px;
-  background-color: #e94560;
+  background-color: #00B4D8; /* 🟦 [변경] 하늘색 버튼 */
   color: #ffffff;
   border: none;
   font-size: 1.1rem;
@@ -116,10 +110,10 @@
 }
 
 .search-button:hover {
-  background-color: #ff6f8a;
+  background-color: #0096C7; /* 🟦 [변경] 호버 */
 }
 
-/* 탭 내비게이션 */
+/* 탭 */
 .tabs-navigation {
   display: flex;
   justify-content: center;
@@ -147,9 +141,9 @@
 }
 
 .tab-button.active {
-  color: #e94560;
-  border-bottom: 3px solid #e94560;
-  background-color: rgba(233, 69, 96, 0.1);
+  color: #00B4D8; /* 🟦 [변경] 활성 탭 텍스트 */
+  border-bottom: 3px solid #00B4D8; /* 🟦 [변경] 활성 탭 밑줄 */
+  background-color: rgba(0, 180, 216, 0.1); /* 🟦 [변경] 활성 탭 배경 */
 }
 
 .tab-button:disabled {
@@ -173,7 +167,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.5); /* 🟦 [변경] 랭크 아이콘 글로우 */
   flex-shrink: 0;
 }
 
@@ -193,7 +187,7 @@
 
 .player-level span, .player-rank span {
   font-weight: bold;
-  color: #e94560;
+  color: #00B4D8; /* 🟦 [변경] 강조 텍스트 */
 }
 
 .divider {
@@ -202,10 +196,10 @@
   margin: 30px 0;
 }
 
-/* --- 레전드 통계 섹션 --- */
+/* 레전드 통계 */
 .legend-stats-section h3 {
   font-size: 1.6rem;
-  color: #e94560;
+  color: #00B4D8; /* 🟦 [변경] 섹션 제목 */
   margin-bottom: 25px;
   text-align: center;
   border-bottom: 1px dashed #0f3460;
@@ -230,7 +224,7 @@
 
 .legend-card:hover {
   background-color: #1f2c4a;
-  border-color: #e94560;
+  border-color: #00B4D8; /* 🟦 [변경] 호버 시 테두리 */
 }
 
 .legend-card-image {
@@ -265,7 +259,7 @@
   background-color: #1a1a2e;
   padding: 12px 15px;
   border-radius: 5px;
-  border-left: 4px solid #e94560;
+  border-left: 4px solid #00B4D8; /* 🟦 [변경] 통계 아이템 포인트 */
   display: flex;
   flex-direction: column;
 }
@@ -284,12 +278,10 @@
   color: #ffffff;
 }
 
-/* ===============================================
-   💡 3. OP.GG 스타일 경기 내역 (새로운 스타일)
-=============================================== */
+/* 경기 내역 (OP.GG 스타일 - 다크) */
 .match-history-section h3 {
   font-size: 1.6rem;
-  color: #e94560;
+  color: #00B4D8; /* 🟦 [변경] */
   margin-bottom: 25px;
   text-align: center;
   border-bottom: 1px dashed #0f3460;
@@ -313,7 +305,6 @@
   gap: 10px;
 }
 
-/* 카드 기본 스타일 */
 .opgg-card {
   display: flex;
   align-items: center;
@@ -330,36 +321,29 @@
   transform: translateX(5px);
 }
 
-/* 🟦 승리(1위) 스타일: 파란색 테마 */
 .opgg-card.win {
-  background-color: #28344e; /* 짙은 파랑 배경 */
-  border-left: 6px solid #5383e8; /* 밝은 파랑 라인 */
+  background-color: #28344e;
+  border-left: 6px solid #5383e8;
 }
 
-.opgg-card.win .result-text {
+.opgg-card.win .result-text, .opgg-card.win .damage-val {
   color: #5383e8;
 }
 
-.opgg-card.win .damage-val {
-  color: #5383e8; /* 데미지 강조 */
-}
-
-/* ⬛ 패배(나머지) 스타일: 회색/붉은 테마 */
 .opgg-card.lose {
-  background-color: #1e2027; /* 짙은 회색 */
-  border-left: 6px solid #e94560; /* 붉은색 라인 */
+  background-color: #1e2027;
+  border-left: 6px solid #00B4D8; /* 🟦 [변경] 패배/일반 카드 테두리를 테마색으로 통일 */
 }
 
 .opgg-card.lose .result-text {
   color: #999;
 }
 
-/* 1. 정보 섹션 (승패, 모드, 시간) */
 .opgg-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 100px;
+  width: 120px;
 }
 
 .result-text {
@@ -373,17 +357,22 @@
   font-weight: bold;
 }
 
+.game-map {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin-bottom: 2px;
+}
+
 .game-time {
   font-size: 0.8rem;
   color: #777;
 }
 
-/* 2. 챔피언(레전드) 섹션 */
 .opgg-champion {
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 180px;
+  width: 200px;
 }
 
 .champion-icon-wrapper {
@@ -399,15 +388,14 @@
 }
 
 .opgg-card.win .champion-icon {
-  border-color: #5383e8; /* 승리 시 파란 테두리 */
+  border-color: #5383e8;
 }
 
-/* MVP 뱃지 */
 .mvp-badge {
   position: absolute;
   bottom: -5px;
   right: -5px;
-  background-color: #f1c40f; /* 금색 */
+  background-color: #f1c40f;
   color: #000;
   font-size: 0.7rem;
   font-weight: 900;
@@ -421,7 +409,6 @@
   font-weight: 700;
 }
 
-/* 3. 스탯 섹션 (킬/데미지) */
 .opgg-stats {
   display: flex;
   gap: 30px;
@@ -436,10 +423,27 @@
   align-items: center;
 }
 
-.kills {
-  font-size: 1.6rem;
+.kda-numbers {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-weight: 800;
-  color: #fff;
+  font-size: 1.4rem;
+}
+
+.assists {
+  color: #a0a0a0;
+}
+
+.knockdowns {
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.separator {
+  color: #555;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .damage-val {
@@ -455,7 +459,6 @@
   text-transform: uppercase;
 }
 
-/* 4. 화살표 장식 */
 .opgg-arrow {
   color: #333;
   font-size: 1.2rem;
@@ -464,161 +467,100 @@
 .opgg-card.win .opgg-arrow {
   color: #2c4678;
 }
-/* src/RankingPage.css */
 
-/* 1. 랭킹 (Predator 컷) */
-.ranking-list-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: flex-start;
+/* Rating History */
+.rating-history-section h3 {
+  font-size: 1.6rem;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  border-left: 5px solid #00B4D8; /* 🟦 [변경] */
+  padding-left: 15px;
 }
 
-.ranking-list-container h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #e94560; 
-  margin-top: 0;
-  margin-bottom: 25px;
-  text-align: center;
-  border-bottom: 2px solid #0f3460;
-  padding-bottom: 15px;
-  width: 100%; 
-}
-
-.loading-message {
-  text-align: center;
-  color: #a0a0a0;
-  margin-top: 30px;
-  font-size: 1.1rem;
-}
-
-.predator-rank-info {
-  text-align: center;
-  margin-top: 40px;
-  padding: 30px;
-  background-color: #0e162b;
-  border-radius: 10px;
-  border: 1px solid #0f3460;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  width: 90%;
-  max-width: 350px;
-}
-
-.predator-rank-header { font-size: 1.3rem; font-weight: 600; color: #e0e0e0; margin-bottom: 15px; }
-.predator-rank-lp { font-size: 3.5rem; font-weight: 800; color: #e94560; margin: 15px 0 20px 0; letter-spacing: 1px; }
-.predator-rank-total { font-size: 1.1rem; color: #c0c0c0; margin-bottom: 25px; }
-.update-time { font-size: 0.9rem; color: #888; margin-top: 30px; border-top: 1px dashed #0f3460; padding-top: 15px; }
-
-/* 2. 중앙 컨텐츠 */
-.search-form {
-  display: flex;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 20px auto;
-  background-color: #0e162b;
+.rating-list {
+  background-color: #151920;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.rating-header-row {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr 1fr;
+  padding: 15px 20px;
+  background-color: #1e252f;
+  color: #888;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr 1fr;
+  padding: 15px 20px;
+  border-bottom: 1px solid #2a3441;
+  align-items: center;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+
+.rating-row:hover {
+  background-color: #1f2a36;
+}
+
+.r-date {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.r-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.r-rank-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.r-rating-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.r-name {
+  font-weight: bold;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.r-rp {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.r-gain {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.r-gain.positive {
+  color: #00B4D8; /* 🟦 [변경] 상승 수치 하늘색 */
+}
+
+.r-gain.negative {
+  color: #e74c3c;
+}
+/* 차트 컨테이너 스타일 (기존 코드에 추가/확인) */
+.chart-container {
+  background-color: #151920; /* 리스트와 동일한 어두운 배경 */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   border: 1px solid #0f3460;
 }
-
-.search-input { flex-grow: 1; padding: 15px 20px; border: none; background-color: #0e162b; color: #ffffff; font-size: 1.1rem; outline: none; }
-.search-input::placeholder { color: #888; }
-.search-button { padding: 15px 25px; background-color: #e94560; color: #ffffff; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease; flex-shrink: 0; }
-.search-button:hover { background-color: #ff6f8a; }
-
-/* 탭 */
-.tabs-navigation { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #0f3460; padding-bottom: 10px; }
-.tab-button { background: transparent; border: none; color: #a0a0a0; padding: 10px 20px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border-radius: 5px; }
-.tab-button:hover { color: #ffffff; background-color: rgba(255, 255, 255, 0.05); }
-.tab-button.active { color: #e94560; border-bottom: 3px solid #e94560; background-color: rgba(233, 69, 96, 0.1); }
-.tab-button:disabled { color: #444; cursor: not-allowed; }
-
-/* 플레이어 헤더 */
-.player-details-card { width: 100%; }
-.player-header-section { display: flex; align-items: center; gap: 25px; margin-bottom: 30px; }
-.rank-icon-large { width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 0 15px rgba(233, 69, 96, 0.5); flex-shrink: 0; }
-.player-info-text h1 { font-size: 2.8rem; font-weight: 800; color: #ffffff; margin: 0 0 8px 0; letter-spacing: 1px; }
-.player-level, .player-rank { font-size: 1.2rem; color: #c0c0c0; margin: 5px 0; }
-.player-level span, .player-rank span { font-weight: bold; color: #e94560; }
-.divider { height: 1px; background: linear-gradient(to right, transparent, #0f3460, transparent); margin: 30px 0; }
-
-/* 레전드 통계 */
-.legend-stats-section h3 { font-size: 1.6rem; color: #e94560; margin-bottom: 25px; text-align: center; border-bottom: 1px dashed #0f3460; padding-bottom: 10px; }
-.legend-list { display: flex; flex-direction: column; gap: 20px; }
-.legend-card { display: flex; background: #0e162b; border: 1px solid #0f3460; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); transition: background-color 0.2s ease, border-color 0.2s ease; }
-.legend-card:hover { background-color: #1f2c4a; border-color: #e94560; }
-.legend-card-image { width: 180px; height: 180px; object-fit: cover; flex-shrink: 0; border-right: 1px solid #0f3460; }
-.legend-card-stats { display: flex; flex-direction: column; padding: 25px; flex-grow: 1; }
-.legend-name { font-size: 2rem; font-weight: 700; color: #ffffff; margin: 0 0 20px 0; }
-.legend-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 20px; }
-.legend-stat-item { background-color: #1a1a2e; padding: 12px 15px; border-radius: 5px; border-left: 4px solid #e94560; display: flex; flex-direction: column; }
-.stat-label { font-size: 0.9rem; color: #a0a0a0; font-weight: 500; margin-bottom: 5px; text-transform: uppercase; }
-.stat-value { font-size: 1.7rem; font-weight: 700; color: #ffffff; }
-
-/* 경기 내역 (OP.GG 스타일) */
-.match-history-section h3 { font-size: 1.6rem; color: #e94560; margin-bottom: 25px; text-align: center; border-bottom: 1px dashed #0f3460; padding-bottom: 10px; }
-.match-group { margin-bottom: 30px; }
-.match-date-label { font-size: 1rem; color: #888; margin-bottom: 10px; margin-left: 5px; }
-.match-list-opgg { display: flex; flex-direction: column; gap: 10px; }
-.opgg-card { display: flex; align-items: center; justify-content: space-between; padding: 15px 25px; border-radius: 6px; color: #fff; position: relative; overflow: hidden; transition: transform 0.2s; }
-.opgg-card:hover { transform: translateX(5px); }
-.opgg-card.win { background-color: #28344e; border-left: 6px solid #5383e8; }
-.opgg-card.win .result-text, .opgg-card.win .damage-val { color: #5383e8; }
-.opgg-card.lose { background-color: #1e2027; border-left: 6px solid #e94560; }
-.opgg-card.lose .result-text { color: #999; }
-.opgg-info { display: flex; flex-direction: column; gap: 4px; width: 120px; }
-.result-text { font-size: 1.1rem; font-weight: 800; }
-.game-mode { font-size: 0.85rem; color: #bbb; font-weight: bold; }
-.game-map { font-size: 0.8rem; color: #a0a0a0; margin-bottom: 2px; }
-.game-time { font-size: 0.8rem; color: #777; }
-.opgg-champion { display: flex; align-items: center; gap: 15px; width: 200px; }
-.champion-icon-wrapper { position: relative; }
-.champion-icon { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #333; object-fit: cover; }
-.opgg-card.win .champion-icon { border-color: #5383e8; }
-.mvp-badge { position: absolute; bottom: -5px; right: -5px; background-color: #f1c40f; color: #000; font-size: 0.7rem; font-weight: 900; padding: 2px 5px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-.champion-name { font-size: 1.2rem; font-weight: 700; }
-.opgg-stats { display: flex; gap: 30px; align-items: center; flex-grow: 1; justify-content: center; }
-.kda-box, .damage-box { display: flex; flex-direction: column; align-items: center; }
-.kda-numbers { display: flex; align-items: center; gap: 5px; font-weight: 800; font-size: 1.4rem; }
-.assists { color: #a0a0a0; }
-.knockdowns { color: #888; font-size: 1.2rem; }
-.separator { color: #555; font-size: 1rem; font-weight: normal; }
-.damage-val { font-size: 1.2rem; font-weight: 700; color: #ddd; }
-.kda-label, .damage-label { font-size: 0.8rem; color: #666; margin-top: 2px; text-transform: uppercase; }
-.opgg-arrow { color: #333; font-size: 1.2rem; }
-.opgg-card.win .opgg-arrow { color: #2c4678; }
-
-/* 💡 Rating History (진행 탭) 스타일 */
-.rating-history-section h3 { font-size: 1.6rem; color: #e0e0e0; margin-bottom: 20px; border-left: 5px solid #8884d8; padding-left: 15px; }
-.chart-container { background-color: #151920; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-.rating-list { background-color: #151920; border-radius: 8px; overflow: hidden; }
-.rating-header-row { display: grid; grid-template-columns: 1.5fr 3fr 1.5fr 1fr; padding: 15px 20px; background-color: #1e252f; color: #888; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
-.rating-row { display: grid; grid-template-columns: 1.5fr 3fr 1.5fr 1fr; padding: 15px 20px; border-bottom: 1px solid #2a3441; align-items: center; color: #fff; transition: background-color 0.2s; }
-.rating-row:hover { background-color: #1f2a36; }
-.r-date { color: #ccc; font-size: 0.95rem; }
-.r-rating { display: flex; align-items: center; gap: 10px; }
-.r-rank-icon { width: 35px; height: 35px; }
-.r-rating-text { display: flex; flex-direction: column; }
-.r-name { font-weight: bold; color: #fff; font-size: 0.9rem; }
-.r-rp { font-size: 0.8rem; color: #888; }
-.r-gain { font-weight: bold; font-size: 1rem; }
-.r-gain.positive { color: #4caf50; }
-.r-gain.negative { color: #e74c3c; }
-.r-rank-num { color: #666; text-align: right; }
-
-@media (max-width: 768px) {
-  .opgg-card { flex-direction: column; align-items: flex-start; padding: 20px; gap: 15px; }
-  .opgg-info, .opgg-champion, .opgg-stats { width: 100%; justify-content: flex-start; }
-  .opgg-stats { justify-content: space-between; margin-top: 10px; padding-top: 15px; border-top: 1px solid #333; }
-  .opgg-arrow { display: none; }
-  .game-map { display: none; }
-}
-
-/* 모바일 반응형 */
 @media (max-width: 768px) {
   .opgg-card {
     flex-direction: column;

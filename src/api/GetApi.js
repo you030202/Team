@@ -1,3 +1,4 @@
+// src/api/GetApi.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import PlayerDetails from '../PlayerDetails'; 
@@ -7,7 +8,7 @@ export default function GetApi() {
   const [playerTag, setPlayerTag] = useState(''); 
   const [playerData, setPlayerData] = useState(null);
   const [matchData, setMatchData] = useState(null);
-  const [ratingHistory, setRatingHistory] = useState(null); // 추가
+  const [ratingHistory, setRatingHistory] = useState(null); // 💡 상태 선언 확인
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
@@ -23,15 +24,15 @@ export default function GetApi() {
     setError(null);
     setPlayerData(null);
     setMatchData(null);
-    setRatingHistory(null);
+    setRatingHistory(null); // 초기화
     setActiveTab('stats');
 
     try {
-      // 3개 API 동시 호출
+      // 💡 [중요] 3번째 API 호출(history)이 반드시 포함되어야 함
       const [playerRes, matchRes, historyRes] = await Promise.allSettled([
         axios.get(`http://localhost:5000/api/summoner/${playerTag}`),
         axios.get(`http://localhost:5000/api/matches/${playerTag}`),
-        axios.get(`http://localhost:5000/api/history/${playerTag}`)
+        axios.get(`http://localhost:5000/api/history/${playerTag}`) // 이 줄 확인!
       ]);
 
       if (playerRes.status === 'fulfilled') {
@@ -41,7 +42,12 @@ export default function GetApi() {
       }
 
       if (matchRes.status === 'fulfilled') setMatchData(matchRes.value.data);
-      if (historyRes.status === 'fulfilled') setRatingHistory(historyRes.value.data);
+      
+      // 💡 [중요] 받아온 데이터를 상태에 저장
+      if (historyRes.status === 'fulfilled') {
+        console.log("History Data Loaded:", historyRes.value.data); // 디버깅용 로그
+        setRatingHistory(historyRes.value.data);
+      }
 
     } catch (err) {
       setError(err.message);
@@ -78,7 +84,7 @@ export default function GetApi() {
         <PlayerDetails 
           playerData={playerData} 
           matchData={matchData} 
-          ratingHistory={ratingHistory} // 전달
+          ratingHistory={ratingHistory} // 💡 props 전달 확인
           activeTab={activeTab} 
         />
       )}

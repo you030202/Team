@@ -33,12 +33,12 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: #e94560; /* 액센트 색상 - 강렬한 레드 */
+  color: #00B4D8; /* 🟦 [변경] 하늘색 포인트 */
   letter-spacing: 1.5px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* 검색 바 스타일 (SearchBar.css와 겹치지 않게 주의) */
+/* 검색 바 스타일 */
 .search-bar {
   display: flex;
   justify-content: center;
@@ -57,14 +57,14 @@ body {
 }
 
 .search-bar input:focus {
-  border-color: #e94560;
-  box-shadow: 0 0 8px rgba(233, 69, 96, 0.6);
+  border-color: #00B4D8; /* 🟦 [변경] 포커스 시 하늘색 */
+  box-shadow: 0 0 8px rgba(0, 180, 216, 0.6); /* 🟦 [변경] 하늘색 글로우 */
   outline: none;
 }
 
 .search-bar button {
   padding: 12px 25px;
-  background-color: #e94560;
+  background-color: #00B4D8; /* 🟦 [변경] 하늘색 버튼 */
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -75,7 +75,7 @@ body {
 }
 
 .search-bar button:hover {
-  background-color: #c73752;
+  background-color: #0096C7; /* 🟦 [변경] 호버 시 진한 하늘색 */
   transform: translateY(-2px);
 }
 
@@ -120,10 +120,10 @@ body {
 /* 섹션 제목 */
 .app-main-content h2,
 .app-sidebar-right h2,
-.ranking-list-container h2 { /* RankingPage.css에도 영향 */
+.ranking-list-container h2 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #e94560; /* 액센트 컬러 */
+  color: #00B4D8; /* 🟦 [변경] 하늘색 타이틀 */
   margin-top: 0;
   margin-bottom: 25px;
   text-align: center;
@@ -131,7 +131,7 @@ body {
   padding-bottom: 15px;
 }
 
-/* 스크롤바 커스텀 (옵션) */
+/* 스크롤바 커스텀 */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -142,18 +142,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e94560;
+  background: #00B4D8; /* 🟦 [변경] 스크롤바 하늘색 */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c73752;
+  background: #0096C7; /* 🟦 [변경] 호버 시 진한 하늘색 */
 }
 
-/* 작은 화면 반응형 */
+/* 반응형 */
 @media (max-width: 1024px) {
   .app-body {
-    flex-direction: column; /* 컬럼 형태로 변경 */
+    flex-direction: column;
     padding: 20px;
     gap: 20px;
   }
@@ -161,8 +161,8 @@ body {
   .app-sidebar-left,
   .app-main-content,
   .app-sidebar-right {
-    flex: none; /* 고정 너비 제거 */
-    width: 100%; /* 전체 너비 차지 */
+    flex: none;
+    width: 100%;
     min-width: unset;
   }
 
